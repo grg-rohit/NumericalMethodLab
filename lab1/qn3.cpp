@@ -1,4 +1,4 @@
-//program using secant
+//program using secant method
 
 #include <iostream>
 #include <cmath>
