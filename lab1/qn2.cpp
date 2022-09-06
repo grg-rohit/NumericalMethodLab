@@ -1,47 +1,41 @@
+
+// solving equations
 #include<bits/stdc++.h>
+#define EPSILON 0.001
 using namespace std;
-#define EPSILON 0.01
- 
-//program for newton raphson method
+
+
+// The function is x^3 - x^2 + 2
 double func(double x)
 {
-    return x*x*x - x*x + 2;
+	return x*x*x - x*x + 2;
 }
- 
 
-void bisection(double a, double b)
+// Derivative of the above function which is 3*x^x - 2*x
+double derivFunc(double x)
 {
-    if (func(a) * func(b) >= 0)
-    {
-        cout << "You have not assumed right a and b\n";
-        return;
-    }
-    int i=0;
-    double c = a;
-    while ((b-a) >= EPSILON)
-    {   
-        // Find middle point
-        c = (a+b)/2;
- 
-        // Check if middle point is root
-        if (func(c) == 0.0)
-            break;
- 
-        else if (func(c)*func(a) < 0)
-            b = c;
-        else
-            a = c;
-        i++;
-    }
-    cout << "The value of root is : " << c<<endl;
-    cout<<"Functional value at calculated root is "<<func(c)<<endl;
-    cout<<"Iteration: "<<i;
+	return 3*x*x - 2*x;
 }
- 
+
+// Function to find the root
+void newtonRaphson(double x)
+{
+	double h = func(x) / derivFunc(x);
+	while (abs(h) >= EPSILON)
+	{
+		h = func(x)/derivFunc(x);
+
+		// x(i+1) = x(i) - f(x) / f'(x)
+		x = x - h;
+	}
+
+	cout << "The value of the root is : " << x;
+}
+
 
 int main()
 {
-    double a =-200, b = 300;
-    bisection(a, b);
-    return 0;
+	double x0 = -20; // Initial values assumed
+	newtonRaphson(x0);
+	return 0;
 }
