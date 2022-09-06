@@ -9,7 +9,7 @@ using namespace std;
 
 float f(float x)
 {
-	// we are taking equation as x^3+x-1
+	// taking equation as x^3+x-1
 	float f = pow(x, 3) + x - 1;
 	return f;
 }
