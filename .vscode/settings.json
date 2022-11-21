@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "BLA.C": "cpp",
+        "cmath": "cpp",
+        "iostream": "cpp"
+    }
+}

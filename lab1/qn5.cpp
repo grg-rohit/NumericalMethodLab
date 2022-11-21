@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+//program to implement Horner’s method
 
 // returns value of poly[0]x(n-1) + poly[1]x(n-2) + .. + poly[n-1]
 int horner(int poly[], int n, int x)
