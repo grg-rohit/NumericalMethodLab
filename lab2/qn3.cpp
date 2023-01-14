@@ -1,6 +1,7 @@
 // CPP Program to interpolate using
 // newton backward interpolation
-#include <bits/stdc++.h>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 // Calculation of u mentioned in formula
@@ -13,40 +14,34 @@ float u_cal(float u, int n)
 }
 
 // Calculating factorial of given n
-int fact(int n)
-{
-	int f = 1;
-	for (int i = 2; i <= n; i++)
-		f *= i;
-	return f;
+// int fact(int n)
+// {
+// 	int f = 1;
+// 	for (int i = 2; i <= n; i++)
+// 		f *= i;
+// 	return f;
+// }
+
+int fact(int n) {
+    if (n == 0) return 1;
+    return n * fact(n-1);
 }
 
 int main()
 {
 	// number of values given
 	int n = 5;
-	//float x[] = { 1891, 1901, 1911,1921, 1931 };
-	float x[n];
-	float y[n][n];
-
-	cout<<"Enter given values:"<<endl;
-	for(int i=0; i<n; i++){
-		cin>>x[i];
-	}
-
+	float x[] = { 1891, 1901, 1911,
+				1921, 1931 };
 				
 	// y[][] is used for difference
 	// table and y[][0] used for input
-	
-	// y[0][0] = 46;
-	// y[1][0] = 66;
-	// y[2][0] = 81;
-	// y[3][0] = 93;
-	// y[4][0] = 101;
-	cout<<"Enter value for the differnece table:"<<endl;
-	for(int i=0; i<n; i++){
-		cin>>y[i][0];
-	}
+	float y[n][n];
+	y[0][0] = 46;
+	y[1][0] = 66;
+	y[2][0] = 81;
+	y[3][0] = 93;
+	y[4][0] = 101;
 
 	// Calculating the backward difference table
 	for (int i = 1; i < n; i++) {

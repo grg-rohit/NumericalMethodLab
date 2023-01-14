@@ -1,6 +1,7 @@
 // CPP program for implementing
 // Newton divided difference formula
-#include <bits/stdc++.h>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 // Function to find the product term

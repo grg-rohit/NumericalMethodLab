@@ -65,7 +65,7 @@ int main()
         int k=i;
         cout<<++k<<":";
         cin>>x[i];
-    };
+    }
 
 	// y[][] is used for divided difference
 	// table where y[][0] is used for input

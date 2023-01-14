@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<math.h>
-void main()
+int main()
 {
 
     int i,j,n;
@@ -67,4 +67,5 @@ void main()
         printf("%f\t",z[i]);
     }
 
+    return 0;
 }

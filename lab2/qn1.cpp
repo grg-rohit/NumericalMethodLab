@@ -1,41 +1,27 @@
-#include<iostream>
-#include<conio.h>
+#include <iostream>
+#include <cmath>
 
 using namespace std;
 
-int main()
-{
-	 float x[100], y[100], xp, yp=0, p;
-	 int i,j,n;
+double LagrangeInterpolation(double x, double x_values[], double y_values[], int n) {
+    double result = 0.0;
+    for (int i = 0; i < n; i++) {
+        double term = y_values[i];
+        for (int j = 0; j < n; j++) {
+            if (j != i) {
+                term *= (x - x_values[j]) / (x_values[i] - x_values[j]);
+            }
+        }
+        result += term;
+    }
+    return result;
+}
 
-	 //User Input
-	 cout<<"Enter number of data: ";
-	 cin>>n;
-	 cout<<"Enter data:"<< endl;
-	 for(i=1;i<=n;i++)
-	 {
-		  cout<<"x["<< i<<"] = ";
-		  cin>>x[i];
-		  cout<<"y["<< i<<"] = ";
-		  cin>>y[i];
-	 }
-	 cout<<"Enter interpolation point: ";
-	 cin>>xp;
-
-	 //Implementing Lagrange Interpolation
-	 for(i=1;i<=n;i++)
-	 {
-		  p=1;
-		  for(j=1;j<=n;j++)
-		  {
-			   if(i!=j)
-			   {
-			    	p = p* (xp - x[j])/(x[i] - x[j]);
-			   }
-		  }
-		  yp = yp + p * y[i];
-	 }
-	 cout<< endl<<"Interpolated value at "<< xp<< " is "<< yp;
-
-	 return 0;
+int main() {
+    double x_values[] = {1, 2, 3};
+    double y_values[] = {1, 4, 9};
+    int n = sizeof(x_values) / sizeof(x_values[0]);
+    double x = 2.5;
+    cout << "f(" << x << ") = " << LagrangeInterpolation(x, x_values, y_values, n) << endl;
+    return 0;
 }

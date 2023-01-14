@@ -4,7 +4,20 @@
 /* Define function here */
 #define f(x) 1/(1+pow(x,2))
 
-float simpson(float a, float b, float n){
+//function for simpson 3/8 rule
+float simpson(float a, float b){
+    float h=(b-a)/3;
+    float sum = f(a) + f(b);
+
+    for(int i=1; i<=3-1; i++){
+        float k = a+i*h;
+        sum+=3*f(k);
+    }
+    return sum*(3*h/8);
+}
+
+//function for composite simpson 3/8 rule
+float Csimpson(float a, float b, float n){
     float h=(b-a)/n;
     float sum = f(a) + f(b);
     float sumD3 = 0;
@@ -39,7 +52,7 @@ int main()
  cout<<"Enter number of sub intervals: ";
  cin>>subInterval;
 
- cout<< endl <<"Required value of integration is: "<<simpson(lower, upper, subInterval);
+ cout<< endl <<"Required value of integration using simple simpson and composite simpson 3/8 rule respectively is: "<<simpson(lower, upper)<<" and "<<Csimpson(lower, upper, subInterval);
 
  return 0;
 }

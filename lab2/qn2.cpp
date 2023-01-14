@@ -1,8 +1,6 @@
 // CPP Program to interpolate using
 // newton forward interpolation
-//#include <bits/stdc++.h>
-#include<iostream>
-#include<stdlib.h>
+#include <iostream>
 #include <iomanip>
 using namespace std;
 
@@ -16,35 +14,32 @@ float u_cal(float u, int n)
 }
 
 // calculating factorial of given number n
-int fact(int n)
-{
-	int f = 1;
-	for (int i = 2; i <= n; i++)
-		f *= i;
-	return f;
+// int fact(int n)
+// {
+// 	int f = 1;
+// 	for (int i = 2; i <= n; i++)
+// 		f *= i;
+// 	return f;
+// }
+
+int fact(int n) {
+    if (n == 0) return 1;
+    return n * fact(n-1);
 }
 
 int main()
 {
 	// Number of values given
 	int n = 4;
-	//float x[] = { 45, 50, 55, 60 };
-	float x[n];
+	float x[] = { 45, 50, 55, 60 };
 	
 	// y[][] is used for difference table
 	// with y[][0] used for input
 	float y[n][n];
-
-	cout<<"Enter given values:"<<endl;
-	for(int i=0; i<n; i++){
-		cin>>x[i];
-	}
-
-
-	cout<<"Enter value for the differnece table:"<<endl;
-	for(int i=0; i<n; i++){
-		cin>>y[i][0];
-	}
+	y[0][0] = 0.7071;
+	y[1][0] = 0.7660;
+	y[2][0] = 0.8192;
+	y[3][0] = 0.8660;
 
 	// Calculating the forward difference
 	// table
