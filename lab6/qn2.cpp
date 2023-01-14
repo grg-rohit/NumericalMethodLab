@@ -11,12 +11,12 @@ const double L = 3; // Domain size
 double f[N+1][N+1]; // Solution array
 
 int main() {
-    // Set initial condition f = 0 on the boundary
+    
     for (int i = 0; i <= N; i++) {
         f[i][0] = 100;
         f[i][N] = 200;
-        f[0][i] = 200;
-        f[N][i] = 100;
+        f[0][i] = 100;
+        f[N][i] = 200;
     }
 
     // Iterate to solve the equation
